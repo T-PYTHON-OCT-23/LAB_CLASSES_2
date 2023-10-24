@@ -5,7 +5,7 @@ class Vehicle:
         self.__color=color
         self.__capacity=capacity
         self.__plate_num=plate_num
-    def dirve(self):
+    def drive(self):
           print(f"the {self.__name} is driving!")
 
     def drift(self):
@@ -50,18 +50,18 @@ class Vehicle:
         return self.__plate_num
 
 class Bus(Vehicle):
-    def __init__(self, brand, name, color, capacity, plate_num, seats_num):
+    def __init__(self, brand, name, color, capacity, plate_num, school):
         super().__init__(brand, name, color, capacity, plate_num)
-        self.__seats_num=seats_num
+        self.__school=school
         
-    def seats_numSet(self, seats_num):
-        self.__seats_num=seats_num
-        return self.__seats_num
+    def schoolSet(self, school):
+        self.__school=school
+        return self.__school
 
-    def seat_numGet(self):
-        return self.__seats_num
+    def schoolGet(self):
+        return self.__school
     def drift(self):
-        print(f"Sorry, {self.__name} cant drift because its a buss!!")
+        print(f"Sorry, {super().nameGet()} cant drift because its a buss!!")
 
 class Truck(Vehicle):
     def __init__(self, brand, name, color, capacity, plate_num, cargo):
@@ -75,4 +75,25 @@ class Truck(Vehicle):
     def cargoGet(self):
         return self.__cargo
     def drift(self):
-        print(f"Sorry, {self.__name} cant drift because its a Truck!!")
+        print(f"Sorry, {super().nameGet()} cant drift because its a Truck!!")
+
+
+#--------------------------------------------------------
+
+car=Vehicle("totyota", "corola", "red", 4, "abc 5849")
+bus=Bus("volvo", "bus506", "yellow", 30, "xyz 9876", "Noor al-islam")
+truck=Truck("Merceds", "t-300", "black", 2, "dfg 1736", "Food")
+
+list=[car,bus,truck]
+
+for i in list:
+    i.drive()
+    i.drift()
+    i.carry_cargo()
+    print(i.nameGet())
+    print(i.brandGet())
+    print(i.colorGet())
+    print(i.capacityGet())
+    print(i.plate_numGet())
+    print("--"*30)
+
